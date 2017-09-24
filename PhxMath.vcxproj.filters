@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Math\PhxMathFloat.cpp" />
+    <ClCompile Include="Math\PhxMathMatrix4x4.cpp" />
+    <ClCompile Include="Math\PhxMathQuaternion.cpp" />
+    <ClCompile Include="Math\PhxMathRectangle.cpp" />
+    <ClCompile Include="Math\PhxMathVector2.cpp" />
+    <ClCompile Include="Math\PhxMathVector3.cpp" />
+    <ClCompile Include="Math\PhxMathVector4.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Math\PhxMathFloat.h" />
+    <ClInclude Include="Math\PhxMath.h" />
+    <ClInclude Include="Math\PhxMathMatrix4x4.h" />
+    <ClInclude Include="Math\PhxMathQuaternion.h" />
+    <ClInclude Include="Math\PhxMathRectangle.h" />
+    <ClInclude Include="Math\PhxMathVector2.h" />
+    <ClInclude Include="Math\PhxMathVector3.h" />
+    <ClInclude Include="Math\PhxMathVector4.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Math\PhxMathFloat.inl" />
+    <None Include="Math\PhxMathMatrix4x4.inl" />
+    <None Include="Math\PhxMathQuaternion.inl" />
+    <None Include="Math\PhxMathRectangle.inl" />
+    <None Include="Math\PhxMathVector2.inl" />
+    <None Include="Math\PhxMathVector3.inl" />
+    <None Include="Math\PhxMathVector4.inl" />
+  </ItemGroup>
+</Project>
