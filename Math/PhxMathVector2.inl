@@ -633,8 +633,9 @@ namespace Math {
         return ((lhs.X * rhs.X) + (lhs.Y * rhs.Y));
     }
 
-    inline float Perp(const Vector2 &lhs, const Vector2 &rhs)
+    inline float Cross(const Vector2 &lhs, const Vector2 &rhs)
     {
+        // Also known as 2D Perpendicular Product
         return ((lhs.X * rhs.Y) - (lhs.Y * rhs.X));
     }
 

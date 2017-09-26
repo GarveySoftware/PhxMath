@@ -193,7 +193,7 @@ namespace Math {
     inline void Negate(const Vector2 &v, Vector2 &out);
 
     inline float Dot(const Vector2 &lhs, const Vector2 &rhs);
-    inline float Perp(const Vector2 &lhs, const Vector2 &rhs);
+    inline float Cross(const Vector2 &lhs, const Vector2 &rhs);
 
     inline Vector2 Lerp(const Vector2 &v1, const Vector2 &v2, float weight);
     inline void Lerp(const Vector2 &v1, const Vector2 &v2, float weight, Vector2 &out);
