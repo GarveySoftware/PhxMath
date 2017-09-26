@@ -124,7 +124,7 @@ namespace Math {
 
     inline void Vector4::Clamp(const Vector4 &min, const Vector4 &max)
     {
-        return Math::Clamp(*this, min, max, *this);
+        Math::Clamp(*this, min, max, *this);
     }
 
     inline float Vector4::Length() const

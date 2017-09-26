@@ -633,6 +633,11 @@ namespace Math {
         return ((lhs.X * rhs.X) + (lhs.Y * rhs.Y));
     }
 
+    inline float Perp(const Vector2 &lhs, const Vector2 &rhs)
+    {
+        return ((lhs.X * rhs.Y) - (lhs.Y * rhs.X));
+    }
+
     inline Vector2 Lerp(const Vector2 &v1, const Vector2 &v2, float weight)
     {
         Vector2 out;
@@ -670,6 +675,12 @@ namespace Math {
     {
         out.X = SmoothStep(v1.X, v2.X, weight);
         out.Y = SmoothStep(v1.Y, v2.Y, weight);
+    }
+
+    inline void Swap(Vector2 & v1, Vector2 & v2)
+    {
+        Swap(v1.X, v2.X);
+        Swap(v1.Y, v2.Y);
     }
 
 } //namespace Math

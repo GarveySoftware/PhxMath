@@ -64,7 +64,12 @@ namespace Math {
     inline float InvSqrt(float f);
 
     inline float Max(float f1, float f2);
+    inline float Max(float f1, float f2, float f3);
+    inline float Max(float f1, float f2, float f3, float f4);
+
     inline float Min(float f1, float f2);
+    inline float Min(float f1, float f2, float f3);
+    inline float Min(float f1, float f2, float f3, float f4);
 
     inline float Ceiling(float f);
     inline float Floor(float f);
@@ -77,6 +82,8 @@ namespace Math {
     inline float WrapDegrees(float degrees);
 
     inline float Remap(float in, float inRangeMin, float inRangeMax, float outRangeMin, float outRangeMax);
+
+    inline void Swap(float & f1, float & f2);
 
     namespace Float
     {

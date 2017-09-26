@@ -198,9 +198,43 @@ namespace Math {
         return (f1 > f2 ? f1 : f2);
     }
 
+    inline float Max(float f1, float f2, float f3)
+    {
+        float out = f1;
+        if (f2 > out) { out = f2; }
+        if (f3 > out) { out = f3; }
+        return out;
+    }
+
+    inline float Max(float f1, float f2, float f3, float f4)
+    {
+        float out = f1;
+        if (f2 > out) { out = f2; }
+        if (f3 > out) { out = f3; }
+        if (f4 > out) { out = f4; }
+        return out;
+    }
+
     inline float Min(float f1, float f2)
     {
         return (f1 < f2 ? f1 : f2);
+    }
+
+    inline float Min(float f1, float f2, float f3)
+    {
+        float out = f1;
+        if (f2 < out) { out = f2; }
+        if (f3 < out) { out = f3; }
+        return out;
+    }
+
+    inline float Min(float f1, float f2, float f3, float f4)
+    {
+        float out = f1;
+        if (f2 < out) { out = f2; }
+        if (f3 < out) { out = f3; }
+        if (f4 < out) { out = f4; }
+        return out;
     }
 
     inline float Ceiling(float f)
@@ -264,6 +298,13 @@ namespace Math {
         if (in >= inRangeMax) { return outRangeMax; }
 
         return outRangeMin + ((in - inRangeMin) / (inRangeMax - inRangeMin)) * (outRangeMax - outRangeMin);
+    }
+
+    inline void Swap(float & f1, float & f2)
+    {
+        float temp = f1;
+        f1 = f2;
+        f2 = temp;
     }
 
 } //namespace Math
