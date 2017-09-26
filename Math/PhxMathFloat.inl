@@ -47,7 +47,7 @@ namespace Math {
 
     inline bool NearlyZero(float f)
     {
-        return (fabsf(f) < Float::Tolerance);
+        return ((f * f) < Float::Tolerance);
     }
 
     inline float Abs(float f)
