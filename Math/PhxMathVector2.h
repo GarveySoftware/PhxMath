@@ -79,6 +79,7 @@ namespace Math {
         inline void Transform(const Quaternion &q);
 
         inline void Clamp(const Vector2 &min, const Vector2 &max);
+        inline void Clamp01();
 
         inline float Length() const;
         inline float LengthSquared() const;
@@ -157,6 +158,27 @@ namespace Math {
 
     inline Vector2 Clamp(const Vector2 &v, const Vector2 &min, const Vector2 &max);
     inline void Clamp(const Vector2 &v, const Vector2 &min, const Vector2 &max, Vector2 &out);
+
+    inline Vector2 Clamp01(const Vector2 &v);
+    inline void Clamp01(const Vector2 &v, Vector2 &out);
+
+    inline Vector2 Remap(const Vector2 &in, const Vector2 &inRangeMin, const Vector2 &inRangeMax, const Vector2 &outRangeMin, const Vector2 &outRangeMax);
+    inline void Remap(const Vector2 &in, const Vector2 &inRangeMin, const Vector2 &inRangeMax, const Vector2 &outRangeMin, const Vector2 &outRangeMax, Vector2 &out);
+
+    inline Vector2 Max(const Vector2 &v1, const Vector2 &v2);
+    inline void Max(const Vector2 &v1, const Vector2 &v2, Vector2 &out);
+
+    inline Vector2 Min(const Vector2 &v1, const Vector2 &v2);
+    inline void Min(const Vector2 &v1, const Vector2 &v2, Vector2 &out);
+
+    inline Vector2 Ceiling(const Vector2 &v);
+    inline void Ceiling(const Vector2 &v, Vector2 &out);
+
+    inline Vector2 Floor(const Vector2 &v);
+    inline void Floor(const Vector2 &v, Vector2 &out);
+    
+    inline Vector2 Round(const Vector2 &v);
+    inline void Round(const Vector2 &v, Vector2 &out);
 
     inline float Length(const Vector2 &v);
     inline float LengthSquared(const Vector2 &v);

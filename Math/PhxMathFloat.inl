@@ -258,6 +258,14 @@ namespace Math {
         return degrees;
     }
 
+    inline float Remap(float in, float inRangeMin, float inRangeMax, float outRangeMin, float outRangeMax)
+    {
+        if (in <= inRangeMin) { return outRangeMin; }
+        if (in >= inRangeMax) { return outRangeMax; }
+
+        return outRangeMin + ((in - inRangeMin) / (inRangeMax - inRangeMin)) * (outRangeMax - outRangeMin);
+    }
+
 } //namespace Math
 } //namespace Phx
 

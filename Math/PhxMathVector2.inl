@@ -121,7 +121,12 @@ namespace Math {
 
     inline void Vector2::Clamp(const Vector2 &min, const Vector2 &max)
     {
-        return Math::Clamp(*this, min, max, *this);
+        Math::Clamp(*this, min, max, *this);
+    }
+
+    inline void Vector2::Clamp01()
+    {
+        Math::Clamp01(*this, *this);
     }
 
     inline float Vector2::Length() const
@@ -483,6 +488,97 @@ namespace Math {
     {
         out.X = Clamp(v.X, min.X, max.X);
         out.Y = Clamp(v.Y, min.Y, max.Y);
+    }
+
+    inline Vector2 Clamp01(const Vector2 &v)
+    {
+        Vector2 out;
+        Clamp01(v, out);
+        return out;
+    }
+
+    inline void Clamp01(const Vector2 &v, Vector2 &out)
+    {
+        out.X = Clamp01(v.X);
+        out.Y = Clamp01(v.Y);
+    }
+
+    inline Vector2 Remap(const Vector2 &in, const Vector2 &inRangeMin, const Vector2 &inRangeMax, const Vector2 &outRangeMin, const Vector2 &outRangeMax)
+    {
+        Vector2 out;
+        Remap(in, inRangeMin, inRangeMax, outRangeMin, outRangeMax, out);
+        return out;
+    }
+
+    inline void Remap(const Vector2 &in, const Vector2 &inRangeMin, const Vector2 &inRangeMax, const Vector2 &outRangeMin, const Vector2 &outRangeMax, Vector2 &out)
+    {
+        out.X = Remap(in.X, inRangeMin.X, inRangeMax.X, outRangeMin.X, outRangeMax.X);
+        out.Y = Remap(in.Y, inRangeMin.Y, inRangeMax.Y, outRangeMin.Y, outRangeMax.Y);
+    }
+
+    inline Vector2 Max(const Vector2 &v1, const Vector2 &v2)
+    {
+        Vector2 out;
+        Max(v1, v2, out);
+        return out;
+    }
+
+    inline void Max(const Vector2 &v1, const Vector2 &v2, Vector2 &out)
+    {
+        out.X = Max(v1.X, v2.X);
+        out.Y = Max(v1.Y, v2.Y);
+    }
+
+    inline Vector2 Min(const Vector2 &v1, const Vector2 &v2)
+    {
+        Vector2 out;
+        Min(v1, v2, out);
+        return out;
+    }
+
+    inline void Min(const Vector2 &v1, const Vector2 &v2, Vector2 &out)
+    {
+        out.X = Min(v1.X, v2.X);
+        out.Y = Min(v1.Y, v2.Y);
+    }
+
+    inline Vector2 Ceiling(const Vector2 &v)
+    {
+        Vector2 out;
+        Ceiling(v, out);
+        return out;
+    }
+
+    inline void Ceiling(const Vector2 &v, Vector2 &out)
+    {
+        out.X = Ceiling(v.X);
+        out.Y = Ceiling(v.Y);
+    }
+
+    inline Vector2 Floor(const Vector2 &v)
+    {
+        Vector2 out;
+        Floor(v, out);
+        return out;
+    }
+
+    inline void Floor(const Vector2 &v, Vector2 &out)
+    {
+        out.X = Floor(v.X);
+        out.Y = Floor(v.Y);
+    }
+
+    inline Vector2 Round(const Vector2 &v)
+    {
+        Vector2 out;
+        Round(v, out);
+        return out;
+    }
+
+    inline void Round(const Vector2 &v, Vector2 &out)
+    {
+        out.X = Round(v.X);
+        out.Y = Round(v.Y);
     }
 
     inline float Length(const Vector2 &v)

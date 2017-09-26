@@ -76,7 +76,7 @@ namespace Math {
     inline float WrapRadians(float radians);
     inline float WrapDegrees(float degrees);
 
-    //inline float RangeMap(float in, float inRangeMin, float inRangeMax, float outRangeMin, float outRangeMax);
+    inline float Remap(float in, float inRangeMin, float inRangeMax, float outRangeMin, float outRangeMax);
 
     namespace Float
     {
