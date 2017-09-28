@@ -63,32 +63,32 @@ namespace Math {
         }
         inline explicit Vector3(float f);
         inline explicit Vector3(float x, float y, float z);
-        inline explicit Vector3(const Vector2 &src, float z);
-        inline Vector3(const Vector3 &src);
+        inline explicit Vector3(const Vector2 & src, float z);
+        inline Vector3(const Vector3 & src);
 
         inline ~Vector3() { }
 
-        inline Vector3& operator=(const Vector3 &rhs);
+        inline Vector3 & operator=(const Vector3 & rhs);
 
-        inline float& operator[](unsigned int idx);
-        inline const float& operator[](unsigned int idx) const;
+        inline float & operator[](unsigned int idx);
+        inline const float&  operator[](unsigned int idx) const;
 
-        inline Vector3& operator+=(const Vector3 &rhs);
-        inline Vector3& operator+=(float rhs);
+        inline Vector3 & operator+=(const Vector3 & rhs);
+        inline Vector3 & operator+=(float rhs);
 
-        inline Vector3& operator-=(const Vector3 &rhs);
-        inline Vector3& operator-=(float rhs);
+        inline Vector3 & operator-=(const Vector3 & rhs);
+        inline Vector3 & operator-=(float rhs);
 
-        inline Vector3& operator*=(const Vector3 &rhs);
-        inline Vector3& operator*=(float rhs);
+        inline Vector3 & operator*=(const Vector3 & rhs);
+        inline Vector3 & operator*=(float rhs);
 
-        inline Vector3& operator/=(const Vector3 &rhs);
-        inline Vector3& operator/=(float rhs);
+        inline Vector3 & operator/=(const Vector3 & rhs);
+        inline Vector3 & operator/=(float rhs);
 
-        inline void Transform(const Matrix4x4 &rhs);
-        inline void Transform(const Quaternion &q);
+        inline void Transform(const Matrix4x4 & rhs);
+        inline void Transform(const Quaternion & q);
 
-        inline void Clamp(const Vector3 &min, const Vector3 &max);
+        inline void Clamp(const Vector3 & min, const Vector3 & max);
         inline void Clamp01();
 
         inline float Length() const;
@@ -98,8 +98,8 @@ namespace Math {
 
         inline void Negate();
 
-        inline void Copy(const Vector3 &src);
-        inline void Copy(const float *pSrc);
+        inline void Copy(const Vector3 & src);
+        inline void Copy(const float * pSrc);
         inline void Copy(float x, float y, float z);
         inline void Copy(float f);
 
@@ -107,114 +107,114 @@ namespace Math {
         inline const float * ToArray() const;
     };
 
-    inline bool operator==(const Vector3 &lhs, const Vector3 &rhs);
-    inline bool operator!=(const Vector3 &lhs, const Vector3 &rhs);
-    inline bool operator>(const Vector3 &lhs, const Vector3 &rhs);
-    inline bool operator>=(const Vector3 &lhs, const Vector3 &rhs);
-    inline bool operator<(const Vector3 &lhs, const Vector3 &rhs);
-    inline bool operator<=(const Vector3 &lhs, const Vector3 &rhs);
+    inline bool operator==(const Vector3 & lhs, const Vector3 & rhs);
+    inline bool operator!=(const Vector3 & lhs, const Vector3 & rhs);
+    inline bool operator>(const Vector3 & lhs, const Vector3 & rhs);
+    inline bool operator>=(const Vector3 & lhs, const Vector3 & rhs);
+    inline bool operator<(const Vector3 & lhs, const Vector3 & rhs);
+    inline bool operator<=(const Vector3 & lhs, const Vector3 & rhs);
 
-    inline Vector3 operator+(const Vector3 &lhs, const Vector3 &rhs);
-    inline Vector3 operator+(const Vector3 &lhs, float rhs);
+    inline Vector3 operator+(const Vector3 & lhs, const Vector3 & rhs);
+    inline Vector3 operator+(const Vector3 & lhs, float rhs);
 
-    inline Vector3 operator-(const Vector3 &lhs, const Vector3 &rhs);
-    inline Vector3 operator-(const Vector3 &lhs, float rhs);
-    inline Vector3 operator-(const Vector3 &v);
+    inline Vector3 operator-(const Vector3 & lhs, const Vector3 & rhs);
+    inline Vector3 operator-(const Vector3 & lhs, float rhs);
+    inline Vector3 operator-(const Vector3 & v);
 
-    inline Vector3 operator*(const Vector3 &lhs, const Vector3 &rhs);
-    inline Vector3 operator*(const Vector3 &lhs, float rhs);
+    inline Vector3 operator*(const Vector3 & lhs, const Vector3 & rhs);
+    inline Vector3 operator*(const Vector3 & lhs, float rhs);
 
-    inline Vector3 operator/(const Vector3 &lhs, const Vector3 &rhs);
-    inline Vector3 operator/(const Vector3 &lhs, float rhs);
+    inline Vector3 operator/(const Vector3 & lhs, const Vector3 & rhs);
+    inline Vector3 operator/(const Vector3 & lhs, float rhs);
 
-    inline bool ExactlyEqual(const Vector3 &lhs, const Vector3 &rhs);
-    inline bool ExactlyZero(const Vector3 &v);
+    inline bool ExactlyEqual(const Vector3 & lhs, const Vector3 & rhs);
+    inline bool ExactlyZero(const Vector3 & v);
 
-    inline bool NearlyEqual(const Vector3 &lhs, const Vector3 &rhs);
-    inline bool NearlyZero(const Vector3 &v);
+    inline bool NearlyEqual(const Vector3 & lhs, const Vector3 & rhs);
+    inline bool NearlyZero(const Vector3 & v);
 
-    inline bool AllLess(const Vector3 &lhs, const Vector3 &rhs);
-    inline bool AllLessEqual(const Vector3 &lhs, const Vector3 &rhs);
+    inline bool AllLess(const Vector3 & lhs, const Vector3 & rhs);
+    inline bool AllLessEqual(const Vector3 & lhs, const Vector3 & rhs);
 
-    inline bool AllGreater(const Vector3 &lhs, const Vector3 &rhs);
-    inline bool AllGreaterEqual(const Vector3 &lhs, const Vector3 &rhs);
+    inline bool AllGreater(const Vector3 & lhs, const Vector3 & rhs);
+    inline bool AllGreaterEqual(const Vector3 & lhs, const Vector3 & rhs);
 
-    inline bool IsNormalized(const Vector3 &v);
+    inline bool IsNormalized(const Vector3 & v);
 
-    inline Vector3 Add(const Vector3 &lhs, const Vector3 &rhs);
-    inline Vector3 Add(const Vector3 &lhs, float rhs);
-    inline void Add(const Vector3 &lhs, const Vector3 &rhs, Vector3 &out);
-    inline void Add(const Vector3 &lhs, float rhs, Vector3 &out);
+    inline Vector3 Add(const Vector3 & lhs, const Vector3 & rhs);
+    inline Vector3 Add(const Vector3 & lhs, float rhs);
+    inline void Add(const Vector3 & lhs, const Vector3 & rhs, Vector3 & out);
+    inline void Add(const Vector3 & lhs, float rhs, Vector3 & out);
 
-    inline Vector3 Subtract(const Vector3 &lhs, const Vector3 &rhs);
-    inline Vector3 Subtract(const Vector3 &lhs, float rhs);
-    inline void Subtract(const Vector3 &lhs, const Vector3 &rhs, Vector3 &out);
-    inline void Subtract(const Vector3 &lhs, float rhs, Vector3 &out);
+    inline Vector3 Subtract(const Vector3 & lhs, const Vector3 & rhs);
+    inline Vector3 Subtract(const Vector3 & lhs, float rhs);
+    inline void Subtract(const Vector3 & lhs, const Vector3 & rhs, Vector3 & out);
+    inline void Subtract(const Vector3 & lhs, float rhs, Vector3 & out);
 
-    inline Vector3 Multiply(const Vector3 &lhs, const Vector3 &rhs);
-    inline Vector3 Multiply(const Vector3 &lhs, float rhs);
-    inline void Multiply(const Vector3 &lhs, const Vector3 &rhs, Vector3 &out);
-    inline void Multiply(const Vector3 &lhs, float rhs, Vector3 &out);
+    inline Vector3 Multiply(const Vector3 & lhs, const Vector3 & rhs);
+    inline Vector3 Multiply(const Vector3 & lhs, float rhs);
+    inline void Multiply(const Vector3 & lhs, const Vector3 & rhs, Vector3 & out);
+    inline void Multiply(const Vector3 & lhs, float rhs, Vector3 & out);
 
-    inline Vector3 Transform(const Vector3 &v, const Matrix4x4 &m);
-    inline Vector3 Transform(const Vector3 &v, const Quaternion &q);
-    inline void Transform(const Vector3 &v, const Matrix4x4 &m, Vector3 &out);
-    inline void Transform(const Vector3 &v, const Quaternion &q, Vector3 &out);
+    inline Vector3 Transform(const Vector3 & v, const Matrix4x4 & m);
+    inline Vector3 Transform(const Vector3 & v, const Quaternion & q);
+    inline void Transform(const Vector3 & v, const Matrix4x4 & m, Vector3 & out);
+    inline void Transform(const Vector3 & v, const Quaternion & q, Vector3 & out);
 
-    inline Vector3 Divide(const Vector3 &lhs, const Vector3 &rhs);
-    inline Vector3 Divide(const Vector3 &lhs, float rhs);
-    inline void Divide(const Vector3 &lhs, const Vector3 &rhs, Vector3 &out);
-    inline void Divide(const Vector3 &lhs, float rhs, Vector3 &out);
+    inline Vector3 Divide(const Vector3 & lhs, const Vector3 & rhs);
+    inline Vector3 Divide(const Vector3 & lhs, float rhs);
+    inline void Divide(const Vector3 & lhs, const Vector3 & rhs, Vector3 & out);
+    inline void Divide(const Vector3 & lhs, float rhs, Vector3 & out);
 
-    inline Vector3 Clamp(const Vector3 &v, const Vector3 &min, const Vector3 &max);
-    inline void Clamp(const Vector3 &v, const Vector3 &min, const Vector3 &max, Vector3 &out);
+    inline Vector3 Clamp(const Vector3 & v, const Vector3 & min, const Vector3 & max);
+    inline void Clamp(const Vector3 & v, const Vector3 & min, const Vector3 & max, Vector3 & out);
 
-    inline Vector3 Clamp01(const Vector3 &v);
-    inline void Clamp01(const Vector3 &v, Vector3 &out);
+    inline Vector3 Clamp01(const Vector3 & v);
+    inline void Clamp01(const Vector3 & v, Vector3 & out);
 
-    inline Vector3 Remap(const Vector3 &in, const Vector3 &inRangeMin, const Vector3 &inRangeMax, const Vector3 &outRangeMin, const Vector3 &outRangeMax);
-    inline void Remap(const Vector3 &in, const Vector3 &inRangeMin, const Vector3 &inRangeMax, const Vector3 &outRangeMin, const Vector3 &outRangeMax, Vector3 &out);
+    inline Vector3 Remap(const Vector3 & in, const Vector3 & inRangeMin, const Vector3 & inRangeMax, const Vector3 & outRangeMin, const Vector3 & outRangeMax);
+    inline void Remap(const Vector3 & in, const Vector3 & inRangeMin, const Vector3 & inRangeMax, const Vector3 & outRangeMin, const Vector3 & outRangeMax, Vector3 & out);
 
-    inline Vector3 Max(const Vector3 &v1, const Vector3 &v2);
-    inline void Max(const Vector3 &v1, const Vector3 &v2, Vector3 &out);
+    inline Vector3 Max(const Vector3 & v1, const Vector3 & v2);
+    inline void Max(const Vector3 & v1, const Vector3 & v2, Vector3 & out);
 
-    inline Vector3 Min(const Vector3 &v1, const Vector3 &v2);
-    inline void Min(const Vector3 &v1, const Vector3 &v2, Vector3 &out);
+    inline Vector3 Min(const Vector3 & v1, const Vector3 & v2);
+    inline void Min(const Vector3 & v1, const Vector3 & v2, Vector3 & out);
 
-    inline Vector3 Ceiling(const Vector3 &v);
-    inline void Ceiling(const Vector3 &v, Vector3 &out);
+    inline Vector3 Ceiling(const Vector3 & v);
+    inline void Ceiling(const Vector3 & v, Vector3 & out);
 
-    inline Vector3 Floor(const Vector3 &v);
-    inline void Floor(const Vector3 &v, Vector3 &out);
+    inline Vector3 Floor(const Vector3 & v);
+    inline void Floor(const Vector3 & v, Vector3 & out);
 
-    inline Vector3 Round(const Vector3 &v);
-    inline void Round(const Vector3 &v, Vector3 &out);
+    inline Vector3 Round(const Vector3 & v);
+    inline void Round(const Vector3 & v, Vector3 & out);
 
-    inline float Length(const Vector3 &v);
-    inline float LengthSquared(const Vector3 &v);
+    inline float Length(const Vector3 & v);
+    inline float LengthSquared(const Vector3 & v);
 
-    inline float Distance(const Vector3 &lhs, const Vector3 &rhs);
-    inline float DistanceSquared(const Vector3 &lhs, const Vector3 &rhs);
+    inline float Distance(const Vector3 & lhs, const Vector3 & rhs);
+    inline float DistanceSquared(const Vector3 & lhs, const Vector3 & rhs);
 
-    inline Vector3 Normalize(const Vector3 &v);
-    inline void Normalize(const Vector3 &v, Vector3 &out);
+    inline Vector3 Normalize(const Vector3 & v);
+    inline void Normalize(const Vector3 & v, Vector3 & out);
 
-    inline Vector3 Negate(const Vector3 &v);
-    inline void Negate(const Vector3 &v, Vector3 &out);
+    inline Vector3 Negate(const Vector3 & v);
+    inline void Negate(const Vector3 & v, Vector3 & out);
 
-    inline float Dot(const Vector3 &lhs, const Vector3 &rhs);
+    inline float Dot(const Vector3 & lhs, const Vector3 & rhs);
 
-    inline Vector3 Cross(const Vector3 &lhs, const Vector3 &rhs);
-    inline void Cross(const Vector3 &lhs, const Vector3 &rhs, Vector3 &out);
+    inline Vector3 Cross(const Vector3 & lhs, const Vector3 & rhs);
+    inline void Cross(const Vector3 & lhs, const Vector3 & rhs, Vector3 & out);
 
-    inline Vector3 Lerp(const Vector3 &v1, const Vector3 &v2, float weight);
-    inline void Lerp(const Vector3 &v1, const Vector3 &v2, float weight, Vector3 &out);
+    inline Vector3 Lerp(const Vector3 & v1, const Vector3 & v2, float weight);
+    inline void Lerp(const Vector3 & v1, const Vector3 & v2, float weight, Vector3 & out);
 
-    inline Vector3 Hermite(const Vector3 &v1, const Vector3 &t1, const Vector3 &v2, const Vector3 &t2, float weight);
-    inline void Hermite(const Vector3 &v1, const Vector3 &t1, const Vector3 &v2, const Vector3 &t2, float weight, Vector3 &out);
+    inline Vector3 Hermite(const Vector3 & v1, const Vector3 & t1, const Vector3 & v2, const Vector3 & t2, float weight);
+    inline void Hermite(const Vector3 & v1, const Vector3 & t1, const Vector3 & v2, const Vector3 & t2, float weight, Vector3 & out);
 
-    inline Vector3 SmoothStep(const Vector3 &v1, const Vector3 &v2, float weight);
-    inline void SmoothStep(const Vector3 &v1, const Vector3 &v2, float weight, Vector3 &out);
+    inline Vector3 SmoothStep(const Vector3 & v1, const Vector3 & v2, float weight);
+    inline void SmoothStep(const Vector3 & v1, const Vector3 & v2, float weight, Vector3 & out);
 
     inline void Swap(Vector3 & v1, Vector3 & v2);
 
