@@ -48,12 +48,12 @@ namespace Math {
 
     inline Vector4::Vector4(const Vector4 & src)
     { 
-        Copy(src);
+        Set(src);
     }
 
     inline Vector4 & Vector4::operator=(const Vector4 & rhs)
     {
-        Copy(rhs);
+        Set(rhs);
         return *this;
     }
 
@@ -152,17 +152,17 @@ namespace Math {
         Math::Negate(*this, *this);
     }
 
-    inline void Vector4::Copy(const Vector4 & src)
+    inline void Vector4::Set(const Vector4 & src)
     {
         memcpy(this, &src, sizeof(Vector4));
     }
 
-    inline void Vector4::Copy(const float * pSrc)
+    inline void Vector4::Set(const float * pSrc)
     {
-        memcpy(ToArray(), &pSrc, sizeof(Vector4));
+        memcpy(ToArray(), pSrc, sizeof(Vector4));
     }
 
-    inline void Vector4::Copy(float x, float y, float z, float w)
+    inline void Vector4::Set(float x, float y, float z, float w)
     {
         this->X = x;
         this->Y = y;
@@ -170,7 +170,7 @@ namespace Math {
         this->W = w;
     }
 
-    inline void Vector4::Copy(float f)
+    inline void Vector4::Set(float f)
     {
         this->X = f;
         this->Y = f;
@@ -435,7 +435,7 @@ namespace Math {
         const float y = v.X * m.M12 + v.Y * m.M22 + v.Z * m.M32 + v.W * m.M42;
         const float z = v.X * m.M13 + v.Y * m.M23 + v.Z * m.M33 + v.W * m.M43;
         const float w = v.X * m.M14 + v.Y * m.M24 + v.Z * m.M34 + v.W * m.M44;
-        out.Copy(x, y, z, w);
+        out.Set(x, y, z, w);
     }
 
     inline Vector4 Divide(const Vector4 & lhs, const Vector4 & rhs)

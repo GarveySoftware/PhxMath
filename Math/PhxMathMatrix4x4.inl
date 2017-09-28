@@ -45,7 +45,7 @@ namespace Math {
 
     inline void Matrix4x4::CreateIdentity(Matrix4x4 & out)
     {
-        out.Copy(Matrix4x4::Identity);
+        out.Set(Matrix4x4::Identity);
     }
 
     inline Matrix4x4 Matrix4x4::CreateView(const Vector3 & position, const Vector3 & target, const Vector3 & up)
@@ -89,10 +89,10 @@ namespace Math {
         Math::Cross(zAxis, xAxis, yAxis);
         yAxis.Normalize();
 
-        out.Copy( xAxis.X,               yAxis.X,               zAxis.X,              0.0f,
-                  xAxis.Y,               yAxis.Y,               zAxis.Y,              0.0f,
-                  xAxis.Z,               yAxis.Z,               zAxis.Z,              0.0f,
-                 -Dot(xAxis, position), -Dot(yAxis, position), -Dot(zAxis, position), 1.0f);
+        out.Set( xAxis.X,               yAxis.X,               zAxis.X,              0.0f,
+                 xAxis.Y,               yAxis.Y,               zAxis.Y,              0.0f,
+                 xAxis.Z,               yAxis.Z,               zAxis.Z,              0.0f,
+                -Dot(xAxis, position), -Dot(yAxis, position), -Dot(zAxis, position), 1.0f);
     }
 
     inline Matrix4x4 Matrix4x4::CreateOrthographic(float left, float right, float bottom, float top, float nearDistance, float farDistance)
@@ -389,10 +389,10 @@ namespace Math {
         float sinTheta, cosTheta;
         SinCos(radians, &sinTheta, &cosTheta);
 
-        out.Copy(1.0f,  0.0f,     0.0f,     0.0f,
-                 0.0f,  cosTheta, sinTheta, 0.0f,
-                 0.0f, -sinTheta, cosTheta, 0.0f,
-                 0.0f,  0.0f,     0.0f,     1.0f);
+        out.Set(1.0f,  0.0f,     0.0f,     0.0f,
+                0.0f,  cosTheta, sinTheta, 0.0f,
+                0.0f, -sinTheta, cosTheta, 0.0f,
+                0.0f,  0.0f,     0.0f,     1.0f);
     }
 
     inline Matrix4x4 Matrix4x4::CreateRotationY(float radians)
@@ -410,10 +410,10 @@ namespace Math {
         float sinTheta, cosTheta;
         SinCos(radians, &sinTheta, &cosTheta);
 
-        out.Copy(cosTheta, 0.0f, -sinTheta, 0.0f,
-                 0.0f,     1.0f,  0.0f,     0.0f,
-                 sinTheta, 0.0f,  cosTheta, 0.0f,
-                 0.0f,     0.0f,  0.0f,     1.0f);
+        out.Set(cosTheta, 0.0f, -sinTheta, 0.0f,
+                0.0f,     1.0f,  0.0f,     0.0f,
+                sinTheta, 0.0f,  cosTheta, 0.0f,
+                0.0f,     0.0f,  0.0f,     1.0f);
     }
 
     inline Matrix4x4 Matrix4x4::CreateRotationZ(float radians)
@@ -431,10 +431,10 @@ namespace Math {
         float sinTheta, cosTheta;
         SinCos(radians, &sinTheta, &cosTheta);
 
-        out.Copy( cosTheta, sinTheta, 0.0f, 0.0f,
-                 -sinTheta, cosTheta, 0.0f, 0.0f,
-                  0.0f,     0.0f,     1.0f, 0.0f,
-                  0.0f,     0.0f,     0.0f, 1.0f);
+        out.Set( cosTheta, sinTheta, 0.0f, 0.0f,
+                -sinTheta, cosTheta, 0.0f, 0.0f,
+                 0.0f,     0.0f,     1.0f, 0.0f,
+                 0.0f,     0.0f,     0.0f, 1.0f);
     }
 
     inline Matrix4x4 Matrix4x4::CreateFromYawPitchRoll(float yaw, float pitch, float roll)
@@ -534,10 +534,10 @@ namespace Math {
 
     inline void Matrix4x4::CreateScale(float xScale, float yScale, float zScale, Matrix4x4 & out)
     {
-        out.Copy(xScale, 0.0f,   0.0f,   0.0f,
-                 0.0f,   yScale, 0.0f,   0.0f,
-                 0.0f,   0.0f,   zScale, 0.0f,
-                 0.0f,   0.0f,   0.0f,   1.0f);
+        out.Set(xScale, 0.0f,   0.0f,   0.0f,
+                0.0f,   yScale, 0.0f,   0.0f,
+                0.0f,   0.0f,   zScale, 0.0f,
+                0.0f,   0.0f,   0.0f,   1.0f);
     }
 
     inline Matrix4x4 Matrix4x4::CreateTranslation(const Vector3 & position)
@@ -561,10 +561,10 @@ namespace Math {
 
     inline void Matrix4x4::CreateTranslation(float xPosition, float yPosition, float zPosition, Matrix4x4 & out)
     {
-        out.Copy(1.0f,      0.0f,      0.0f,      0.0f,
-                 0.0f,      1.0f,      0.0f,      0.0f,
-                 0.0f,      0.0f,      1.0f,      0.0f,
-                 xPosition, yPosition, zPosition, 1.0f);
+        out.Set(1.0f,      0.0f,      0.0f,      0.0f,
+                0.0f,      1.0f,      0.0f,      0.0f,
+                0.0f,      0.0f,      1.0f,      0.0f,
+                xPosition, yPosition, zPosition, 1.0f);
     }
 
     inline Matrix4x4 Matrix4x4::CreateWorld(const Vector3 & position, const Vector3 & forward, const Vector3 & up)
@@ -603,10 +603,10 @@ namespace Math {
         Math::Cross(zAxis, xAxis, yAxis);
         yAxis.Normalize();
 
-        out.Copy(xAxis.X,    xAxis.Y,    xAxis.Z,    0.0f,
-                 yAxis.X,    yAxis.Y,    yAxis.Z,    0.0f,
-                 zAxis.X,    zAxis.Y,    zAxis.Z,    0.0f,
-                 position.X, position.Y, position.Z, 1.0f);
+        out.Set(xAxis.X,    xAxis.Y,    xAxis.Z,    0.0f,
+                yAxis.X,    yAxis.Y,    yAxis.Z,    0.0f,
+                zAxis.X,    zAxis.Y,    zAxis.Z,    0.0f,
+                position.X, position.Y, position.Z, 1.0f);
     }
 
     inline Matrix4x4 Matrix4x4::CreateSRT(const Vector3 & translation, const Quaternion & rotation, const Vector3 & scale)
@@ -654,12 +654,12 @@ namespace Math {
 
     inline Matrix4x4::Matrix4x4(const Matrix4x4 & src)
     {
-        Copy(src);
+        Set(src);
     }
 
     inline Matrix4x4 & Matrix4x4::operator=(const Matrix4x4 & rhs)
     {
-        Copy(rhs);
+        Set(rhs);
         return *this;
     }
 
@@ -786,20 +786,43 @@ namespace Math {
         return Vector3(this->M41, this->M42, this->M43);
     }
 
-    inline void Matrix4x4::Copy(const Matrix4x4 & src)
+    inline void Matrix4x4::Set(const Matrix4x4 & src)
     {
         memcpy(this, &src, sizeof(Matrix4x4));
     }
 
-    inline void Matrix4x4::Copy(const float *pSrc)
+    inline void Matrix4x4::Set(const float * pSrc)
     {
         memcpy(ToArray(), pSrc, sizeof(Matrix4x4));
     }
 
-    inline void Matrix4x4::Copy(float m11, float m12, float m13, float m14,
-                                float m21, float m22, float m23, float m24,
-                                float m31, float m32, float m33, float m34,
-                                float m41, float m42, float m43, float m44)
+    inline void Matrix4x4::Set(const Vector4 & row1,
+                               const Vector4 & row2,
+                               const Vector4 & row3,
+                               const Vector4 & row4)
+    {
+        this->M11 = row1.X;
+        this->M12 = row1.Y;
+        this->M13 = row1.Z;
+        this->M14 = row1.W;
+        this->M21 = row2.X;
+        this->M22 = row2.Y;
+        this->M23 = row2.Z;
+        this->M24 = row2.W;
+        this->M31 = row3.X;
+        this->M32 = row3.Y;
+        this->M33 = row3.Z;
+        this->M34 = row3.W;
+        this->M41 = row4.X;
+        this->M42 = row4.Y;
+        this->M43 = row4.Z;
+        this->M44 = row4.W;
+    }
+
+    inline void Matrix4x4::Set(float m11, float m12, float m13, float m14,
+                               float m21, float m22, float m23, float m24,
+                               float m31, float m32, float m33, float m34,
+                               float m41, float m42, float m43, float m44)
     {
         this->M11 = m11;
         this->M12 = m12;
@@ -819,7 +842,7 @@ namespace Math {
         this->M44 = m44;
     }
 
-    inline void Matrix4x4::Copy(float f)
+    inline void Matrix4x4::Set(float f)
     {
         this->M11 = f;
         this->M12 = f;
@@ -1116,10 +1139,10 @@ namespace Math {
         const float m43 = lhs.M41 * rhs.M13 + lhs.M42 * rhs.M23 + lhs.M43 * rhs.M33 + lhs.M44 * rhs.M43;
         const float m44 = lhs.M41 * rhs.M14 + lhs.M42 * rhs.M24 + lhs.M43 * rhs.M34 + lhs.M44 * rhs.M44;
 
-        out.Copy(m11, m12, m13, m14,
-                 m21, m22, m23, m24,
-                 m31, m32, m33, m34,
-                 m41, m42, m43, m44);
+        out.Set(m11, m12, m13, m14,
+                m21, m22, m23, m24,
+                m31, m32, m33, m34,
+                m41, m42, m43, m44);
     }
 
     inline void Multiply(const Matrix4x4 & lhs, float rhs, Matrix4x4 & out)
@@ -1250,7 +1273,7 @@ namespace Math {
         {
             // Not possible to invert
             DebugAssert(false, "Trying to invert a matrix that has no inverse (0 determinant).");
-            out.Copy(Matrix4x4::Zero);
+            out.Set(Matrix4x4::Zero);
             return;
         }
 
@@ -1277,10 +1300,10 @@ namespace Math {
         const float m43 = (-(m.M41 * s3) + (m.M42 * s1) - (m.M43 * s0)) * invDet;
         const float m44 = (+(m.M31 * s3) - (m.M32 * s1) + (m.M33 * s0)) * invDet;
 
-        out.Copy(m11, m12, m13, m14,
-                 m21, m22, m23, m24,
-                 m31, m32, m33, m34,
-                 m41, m42, m43, m44);
+        out.Set(m11, m12, m13, m14,
+                m21, m22, m23, m24,
+                m31, m32, m33, m34,
+                m41, m42, m43, m44);
     }
 
     inline Matrix4x4 Negate(const Matrix4x4 & m)
@@ -1351,10 +1374,10 @@ namespace Math {
         basis3.Normalize();
 
         // Done, now rebuild the orthonormal matrix.
-        out.Copy(basis1.X, basis1.Y, basis1.Z, 0.0f,
-                 basis2.X, basis2.Y, basis2.Z, 0.0f,
-                 basis3.X, basis3.Y, basis3.Z, 0.0f,
-                 0.0f,     0.0f,     0.0f,     1.0f);
+        out.Set(basis1.X, basis1.Y, basis1.Z, 0.0f,
+                basis2.X, basis2.Y, basis2.Z, 0.0f,
+                basis3.X, basis3.Y, basis3.Z, 0.0f,
+                0.0f,     0.0f,     0.0f,     1.0f);
     }
 
     inline Matrix4x4 Transpose(const Matrix4x4 & m)
@@ -1404,7 +1427,7 @@ namespace Math {
         // This isn't the most robust implementation of matrix decomposition (more roboust methods are prohibitively expensive).
         // It will fail sometimes if m was created by a series of Scale Rotation Translation concatenations (object hierarchies: SRT2 * SRT1 * SRT0).
 
-        outTranslation.Copy(m.M41, m.M42, m.M43);
+        outTranslation.Set(m.M41, m.M42, m.M43);
 
         float x = m.M11 * m.M11 + m.M12 * m.M12 + m.M13 * m.M13;
         float y = m.M21 * m.M21 + m.M22 * m.M22 + m.M23 * m.M23;
@@ -1412,12 +1435,12 @@ namespace Math {
 
         if (NearlyZero(x) || NearlyZero(y) || NearlyZero(z))
         {
-            outScale.Copy(Vector3::One);
-            outOrientation.Copy(Quaternion::Identity);
+            outScale.Set(Vector3::One);
+            outOrientation.Set(Quaternion::Identity);
             return false;
         }
-        
-        outScale.Copy(Sqrt(x), Sqrt(y), Sqrt(z));
+
+        outScale.Set(Sqrt(x), Sqrt(y), Sqrt(z));
 
         const float invX = 1.0f / outScale.X;
         const float invY = 1.0f / outScale.Y;

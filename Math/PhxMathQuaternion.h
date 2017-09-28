@@ -101,8 +101,8 @@ namespace Math {
         inline void Inverse();
         inline void Negate();
 
-        inline void Copy(const Quaternion & src);
-        inline void Copy(float x, float y, float z, float w);
+        inline void Set(const Quaternion & src);
+        inline void Set(float x, float y, float z, float w);
 
         inline float * ToArray();
         inline const float * ToArray() const;

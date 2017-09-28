@@ -40,12 +40,12 @@ namespace Math {
     
     inline Vector2::Vector2(const Vector2 & src)
     { 
-        Copy(src);
+        Set(src);
     }
 
     inline Vector2 & Vector2::operator=(const Vector2 & rhs)
     {
-        Copy(rhs);
+        Set(rhs);
         return *this;
     }
 
@@ -149,23 +149,23 @@ namespace Math {
         Math::Negate(*this, *this);
     }
 
-    inline void Vector2::Copy(const Vector2 & src)
+    inline void Vector2::Set(const Vector2 & src)
     {
         memcpy(this, &src, sizeof(Vector2));
     }
 
-    inline void Vector2::Copy(const float * pSrc)
+    inline void Vector2::Set(const float * pSrc)
     {
         memcpy(ToArray(), pSrc, sizeof(Vector2));
     }
 
-    inline void Vector2::Copy(float x, float y)
+    inline void Vector2::Set(float x, float y)
     {
         this->X = x;
         this->Y = y;
     }
 
-    inline void Vector2::Copy(float f)
+    inline void Vector2::Set(float f)
     {
         this->X = f;
         this->Y = f;
@@ -415,7 +415,7 @@ namespace Math {
     {
         const float x = v.X * m.M11 + v.Y * m.M21 + m.M41;
         const float y = v.X * m.M12 + v.Y * m.M22 + m.M42;
-        out.Copy(x, y);
+        out.Set(x, y);
     }
 
     inline void Transform(const Vector2 & v, const Quaternion & q, Vector2 & out)
@@ -444,7 +444,7 @@ namespace Math {
         const float x = v.X + q.W * cX - (q.Z * cY);
         const float y = v.Y + q.W * cY + (q.Z * cX);
 
-        out.Copy(x, y);
+        out.Set(x, y);
     }
 
     inline Vector2 Divide(const Vector2 & lhs, const Vector2 & rhs)

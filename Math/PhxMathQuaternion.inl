@@ -45,7 +45,7 @@ namespace Math {
 
     inline void Quaternion::CreateIdentity(Quaternion & out)
     {
-        out.Copy(Quaternion::Identity);
+        out.Set(Quaternion::Identity);
     }
 
     inline Quaternion Quaternion::CreateOrientation(const Vector3 & forward, const Vector3 & up)
@@ -132,7 +132,7 @@ namespace Math {
 
         float s, c;
         SinCos(radians * 0.5f, &s, &c);
-        out.Copy(axis.X * s, axis.Y * s, axis.Z * s, c);
+        out.Set(axis.X * s, axis.Y * s, axis.Z * s, c);
     }
 
     inline Quaternion Quaternion::CreateRotationX(float radians)   
@@ -146,7 +146,7 @@ namespace Math {
     {
         float s, c;
         SinCos(radians * 0.5f, &s, &c);
-        out.Copy(s, 0.0f, 0.0f, c);
+        out.Set(s, 0.0f, 0.0f, c);
     }
 
     inline Quaternion Quaternion::CreateRotationY(float radians)
@@ -160,7 +160,7 @@ namespace Math {
     {
         float s, c;
         SinCos(radians * 0.5f, &s, &c);
-        out.Copy(0.0f, s, 0.0f, c);
+        out.Set(0.0f, s, 0.0f, c);
     }
 
     inline Quaternion Quaternion::CreateRotationZ(float radians)
@@ -174,7 +174,7 @@ namespace Math {
     {
         float s, c;
         SinCos(radians * 0.5f, &s, &c);
-        out.Copy(0.0f, 0.0f, s, c);
+        out.Set(0.0f, 0.0f, s, c);
     }
 
     inline Quaternion Quaternion::CreateFromYawPitchRoll(float yaw, float pitch, float roll)
@@ -214,12 +214,12 @@ namespace Math {
 
     inline Quaternion::Quaternion(const Quaternion & src)
     {
-        Copy(src);
+        Set(src);
     }
 
     inline Quaternion & Quaternion::operator=(const Quaternion & rhs)
     {
-        Copy(rhs);
+        Set(rhs);
         return *this;
     }
 
@@ -294,12 +294,12 @@ namespace Math {
         Math::Negate(*this, *this);
     }
 
-    inline void Quaternion::Copy(const Quaternion & src)
+    inline void Quaternion::Set(const Quaternion & src)
     {
         memcpy(this, &src, sizeof(Quaternion));
     }
 
-    inline void Quaternion::Copy(float x, float y, float z, float w)
+    inline void Quaternion::Set(float x, float y, float z, float w)
     {
         this->X = x;
         this->Y = y;
@@ -495,7 +495,7 @@ namespace Math {
         const float z = (rhs.W * lhs.Z) + (lhs.W * rhs.Z) + (lhs.X * rhs.Y) - (lhs.Y * rhs.X);
         const float w = (rhs.W * lhs.W) - (lhs.X * rhs.X) - (lhs.Y * rhs.Y) - (lhs.Z * rhs.Z);
 
-        out.Copy(x, y, z, w);
+        out.Set(x, y, z, w);
     }
 
     inline void Multiply(const Quaternion & lhs, float rhs, Quaternion & out)
@@ -756,7 +756,7 @@ namespace Math {
         if (NearlyZero(theta))
         {
             // theta is too close to 0 for slerp
-            out.Copy(q1);
+            out.Set(q1);
             return;
         }
         

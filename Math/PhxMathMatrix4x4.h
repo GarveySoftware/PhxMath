@@ -184,13 +184,17 @@ namespace Math {
         inline Vector3 GetDown() const;
         inline Vector3 GetTranslation() const;
 
-        inline void Copy(const Matrix4x4 & src);
-        inline void Copy(const float * pSrc);
-        inline void Copy(float m11, float m12, float m13, float m14,
-                         float m21, float m22, float m23, float m24,
-                         float m31, float m32, float m33, float m34,
-                         float m41, float m42, float m43, float m44);
-        inline void Copy(float f);
+        inline void Set(const Matrix4x4 & src);
+        inline void Set(const float * pSrc);
+        inline void Set(const Vector4 & row1,
+                        const Vector4 & row2,
+                        const Vector4 & row3,
+                        const Vector4 & row4);
+        inline void Set(float m11, float m12, float m13, float m14,
+                        float m21, float m22, float m23, float m24,
+                        float m31, float m32, float m33, float m34,
+                        float m41, float m42, float m43, float m44);
+        inline void Set(float f);
 
         inline Vector4 & Row(unsigned int idx);
         inline const Vector4 & Row(unsigned int idx) const;

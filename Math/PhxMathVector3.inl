@@ -44,12 +44,12 @@ namespace Math {
 
     inline Vector3::Vector3(const Vector3 & src)
     { 
-        Copy(src);
+        Set(src);
     }
 
     inline Vector3 & Vector3::operator=(const Vector3 & rhs)
     {
-        Copy(rhs);
+        Set(rhs);
         return *this;
     }
 
@@ -251,24 +251,24 @@ namespace Math {
         Math::Negate(*this, *this);
     }
 
-    inline void Vector3::Copy(const Vector3 & src)
+    inline void Vector3::Set(const Vector3 & src)
     {
         memcpy(this, &src, sizeof(Vector3));
     }
 
-    inline void Vector3::Copy(const float * pSrc)
+    inline void Vector3::Set(const float * pSrc)
     {
         memcpy(ToArray(), pSrc, sizeof(Vector3));
     }
 
-    inline void Vector3::Copy(float x, float y, float z)
+    inline void Vector3::Set(float x, float y, float z)
     {
         this->X = x;
         this->Y = y;
         this->Z = z;
     }
 
-    inline void Vector3::Copy(float f)
+    inline void Vector3::Set(float f)
     {
         this->X = f;
         this->Y = f;
@@ -530,7 +530,7 @@ namespace Math {
         const float x = v.X * m.M11 + v.Y * m.M21 + v.Z * m.M31 + m.M41;
         const float y = v.X * m.M12 + v.Y * m.M22 + v.Z * m.M32 + m.M42;
         const float z = v.X * m.M13 + v.Y * m.M23 + v.Z * m.M33 + m.M43;
-        out.Copy(x, y, z);
+        out.Set(x, y, z);
     }
 
     inline void Transform(const Vector3 & v, const Quaternion & q, Vector3 & out)
@@ -561,7 +561,7 @@ namespace Math {
         const float y = v.Y + q.W * cY + (q.Z * cX) - (q.X * cZ);
         const float z = v.Z + q.W * cZ + (q.X * cY) - (q.Y * cX);
 
-        out.Copy(x, y, z);
+        out.Set(x, y, z);
     }
 
     inline Vector3 Divide(const Vector3 & lhs, const Vector3 & rhs)
@@ -676,7 +676,7 @@ namespace Math {
         const float x = (lhs.Y * rhs.Z) - (lhs.Z * rhs.Y);
         const float y = (lhs.Z * rhs.X) - (lhs.X * rhs.Z);
         const float z = (lhs.X * rhs.Y) - (lhs.Y * rhs.X);
-        out.Copy(x, y, z);
+        out.Set(x, y, z);
     }
 
     inline Vector3 Lerp(const Vector3 & v1, const Vector3 & v2, float weight)

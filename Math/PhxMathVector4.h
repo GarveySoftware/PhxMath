@@ -93,10 +93,10 @@ namespace Math {
 
         inline void Negate();
 
-        inline void Copy(const Vector4 & src);
-        inline void Copy(const float * pSrc);
-        inline void Copy(float x, float y, float z, float w);
-        inline void Copy(float f);
+        inline void Set(const Vector4 & src);
+        inline void Set(const float * pSrc);
+        inline void Set(float x, float y, float z, float w);
+        inline void Set(float f);
 
         inline float * ToArray();
         inline const float * ToArray() const;

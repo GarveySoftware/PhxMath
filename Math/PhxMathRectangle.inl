@@ -46,12 +46,12 @@ namespace Math {
 
     inline Rect::Rect(const Rect & src)
     {
-        Copy(src);
+        Set(src);
     }
 
     inline Rect & Rect::operator=(const Rect & rhs)
     {
-        Copy(rhs);
+        Set(rhs);
         return *this;
     }
 
@@ -169,7 +169,7 @@ namespace Math {
         Math::Union(*this, r, out);
     }
     
-    inline void Rect::Copy(float x, float y, float width, float height)
+    inline void Rect::Set(float x, float y, float width, float height)
     {
         this->X = x;
         this->Y = y;
@@ -177,7 +177,7 @@ namespace Math {
         this->Height = height;
     }
 
-    inline void Rect::Copy(const Vector2 & position, const Vector2 & size)
+    inline void Rect::Set(const Vector2 & position, const Vector2 & size)
     {
         this->X = position.X;
         this->Y = position.Y;
@@ -185,7 +185,7 @@ namespace Math {
         this->Height = size.Y;
     }
 
-    inline void Rect::Copy(const Rect & src)
+    inline void Rect::Set(const Rect & src)
     {
         memcpy(this, &src, sizeof(Rect));
     }
@@ -343,7 +343,7 @@ namespace Math {
         }
         else
         {
-            out.Copy(Rect::Empty);
+            out.Set(Rect::Empty);
         }
     }
 

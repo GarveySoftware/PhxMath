@@ -97,9 +97,9 @@ namespace Math {
         inline Rect Union(const Rect & r) const;
         inline void Union(const Rect & r, Rect & out) const;
 
-        inline void Copy(float x, float y, float width, float height);
-        inline void Copy(const Vector2 & position, const Vector2 & size);
-        inline void Copy(const Rect & src);
+        inline void Set(float x, float y, float width, float height);
+        inline void Set(const Vector2 & position, const Vector2 & size);
+        inline void Set(const Rect & src);
     };
 
     inline bool operator==(const Rect & lhs, const Rect & rhs);
