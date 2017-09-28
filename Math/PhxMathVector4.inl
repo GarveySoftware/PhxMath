@@ -127,6 +127,11 @@ namespace Math {
         Math::Clamp(*this, min, max, *this);
     }
 
+    inline void Vector4::Clamp01()
+    {
+        Math::Clamp01(*this, *this);
+    }
+
     inline float Vector4::Length() const
     {
         return Math::Length(*this);
@@ -484,6 +489,111 @@ namespace Math {
         out.W = Clamp(v.W, min.W, max.W);
     }
 
+    inline Vector4 Clamp01(const Vector4 &v)
+    {
+        Vector4 out;
+        Clamp01(v, out);
+        return out;
+    }
+
+    inline void Clamp01(const Vector4 &v, Vector4 &out)
+    {
+        out.X = Clamp01(v.X);
+        out.Y = Clamp01(v.Y);
+        out.Z = Clamp01(v.Z);
+        out.W = Clamp01(v.W);
+    }
+
+    inline Vector4 Remap(const Vector4 &in, const Vector4 &inRangeMin, const Vector4 &inRangeMax, const Vector4 &outRangeMin, const Vector4 &outRangeMax)
+    {
+        Vector4 out;
+        Remap(in, inRangeMin, inRangeMax, outRangeMin, outRangeMax, out);
+        return out;
+    }
+
+    inline void Remap(const Vector4 &in, const Vector4 &inRangeMin, const Vector4 &inRangeMax, const Vector4 &outRangeMin, const Vector4 &outRangeMax, Vector4 &out)
+    {
+        out.X = Remap(in.X, inRangeMin.X, inRangeMax.X, outRangeMin.X, outRangeMax.X);
+        out.Y = Remap(in.Y, inRangeMin.Y, inRangeMax.Y, outRangeMin.Y, outRangeMax.Y);
+        out.Z = Remap(in.Z, inRangeMin.Z, inRangeMax.Z, outRangeMin.Z, outRangeMax.Z);
+        out.W = Remap(in.W, inRangeMin.W, inRangeMax.W, outRangeMin.W, outRangeMax.W);
+    }
+
+    inline Vector4 Max(const Vector4 &v1, const Vector4 &v2)
+    {
+        Vector4 out;
+        Max(v1, v2, out);
+        return out;
+    }
+
+    inline void Max(const Vector4 &v1, const Vector4 &v2, Vector4 &out)
+    {
+        out.X = Max(v1.X, v2.X);
+        out.Y = Max(v1.Y, v2.Y);
+        out.Z = Max(v1.Z, v2.Z);
+        out.W = Max(v1.W, v2.W);
+    }
+
+    inline Vector4 Min(const Vector4 &v1, const Vector4 &v2)
+    {
+        Vector4 out;
+        Min(v1, v2, out);
+        return out;
+    }
+
+    inline void Min(const Vector4 &v1, const Vector4 &v2, Vector4 &out)
+    {
+        out.X = Min(v1.X, v2.X);
+        out.Y = Min(v1.Y, v2.Y);
+        out.Z = Min(v1.Z, v2.Z);
+        out.W = Min(v1.W, v2.W);
+    }
+
+    inline Vector4 Ceiling(const Vector4 &v)
+    {
+        Vector4 out;
+        Ceiling(v, out);
+        return out;
+    }
+
+    inline void Ceiling(const Vector4 &v, Vector4 &out)
+    {
+        out.X = Ceiling(v.X);
+        out.Y = Ceiling(v.Y);
+        out.Z = Ceiling(v.Z);
+        out.W = Ceiling(v.W);
+    }
+
+    inline Vector4 Floor(const Vector4 &v)
+    {
+        Vector4 out;
+        Floor(v, out);
+        return out;
+    }
+
+    inline void Floor(const Vector4 &v, Vector4 &out)
+    {
+        out.X = Floor(v.X);
+        out.Y = Floor(v.Y);
+        out.Z = Floor(v.Z);
+        out.W = Floor(v.W);
+    }
+
+    inline Vector4 Round(const Vector4 &v)
+    {
+        Vector4 out;
+        Round(v, out);
+        return out;
+    }
+
+    inline void Round(const Vector4 &v, Vector4 &out)
+    {
+        out.X = Round(v.X);
+        out.Y = Round(v.Y);
+        out.Z = Round(v.Z);
+        out.W = Round(v.W);
+    }
+
     inline float Length(const Vector4 &v)
     {
         return Sqrt(LengthSquared(v));
@@ -581,6 +691,14 @@ namespace Math {
         out.Y = SmoothStep(v1.Y, v2.Y, weight);
         out.Z = SmoothStep(v1.Z, v2.Z, weight);
         out.W = SmoothStep(v1.W, v2.W, weight);
+    }
+
+    inline void Swap(Vector4 & v1, Vector4 & v2)
+    {
+        Swap(v1.X, v2.X);
+        Swap(v1.Y, v2.Y);
+        Swap(v1.Z, v2.Z);
+        Swap(v1.W, v2.W);
     }
 
 } //namespace Math

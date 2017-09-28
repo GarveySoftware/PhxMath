@@ -128,6 +128,109 @@ namespace Math {
         Math::Clamp(*this, min, max, *this);
     }
 
+    inline void Vector3::Clamp01()
+    {
+        Math::Clamp01(*this, *this);
+    }
+
+    inline Vector3 Clamp01(const Vector3 &v)
+    {
+        Vector3 out;
+        Clamp01(v, out);
+        return out;
+    }
+
+    inline void Clamp01(const Vector3 &v, Vector3 &out)
+    {
+        out.X = Clamp01(v.X);
+        out.Y = Clamp01(v.Y);
+        out.Z = Clamp01(v.Z);
+    }
+
+    inline Vector3 Remap(const Vector3 &in, const Vector3 &inRangeMin, const Vector3 &inRangeMax, const Vector3 &outRangeMin, const Vector3 &outRangeMax)
+    {
+        Vector3 out;
+        Remap(in, inRangeMin, inRangeMax, outRangeMin, outRangeMax, out);
+        return out;
+    }
+
+    inline void Remap(const Vector3 &in, const Vector3 &inRangeMin, const Vector3 &inRangeMax, const Vector3 &outRangeMin, const Vector3 &outRangeMax, Vector3 &out)
+    {
+        out.X = Remap(in.X, inRangeMin.X, inRangeMax.X, outRangeMin.X, outRangeMax.X);
+        out.Y = Remap(in.Y, inRangeMin.Y, inRangeMax.Y, outRangeMin.Y, outRangeMax.Y);
+        out.Z = Remap(in.Z, inRangeMin.Z, inRangeMax.Z, outRangeMin.Z, outRangeMax.Z);
+    }
+
+    inline Vector3 Max(const Vector3 &v1, const Vector3 &v2)
+    {
+        Vector3 out;
+        Max(v1, v2, out);
+        return out;
+    }
+
+    inline void Max(const Vector3 &v1, const Vector3 &v2, Vector3 &out)
+    {
+        out.X = Max(v1.X, v2.X);
+        out.Y = Max(v1.Y, v2.Y);
+        out.Z = Max(v1.Z, v2.Z);
+    }
+
+    inline Vector3 Min(const Vector3 &v1, const Vector3 &v2)
+    {
+        Vector3 out;
+        Min(v1, v2, out);
+        return out;
+    }
+
+    inline void Min(const Vector3 &v1, const Vector3 &v2, Vector3 &out)
+    {
+        out.X = Min(v1.X, v2.X);
+        out.Y = Min(v1.Y, v2.Y);
+        out.Z = Min(v1.Z, v2.Z);
+    }
+
+    inline Vector3 Ceiling(const Vector3 &v)
+    {
+        Vector3 out;
+        Ceiling(v, out);
+        return out;
+    }
+
+    inline void Ceiling(const Vector3 &v, Vector3 &out)
+    {
+        out.X = Ceiling(v.X);
+        out.Y = Ceiling(v.Y);
+        out.Z = Ceiling(v.Z);
+    }
+
+    inline Vector3 Floor(const Vector3 &v)
+    {
+        Vector3 out;
+        Floor(v, out);
+        return out;
+    }
+
+    inline void Floor(const Vector3 &v, Vector3 &out)
+    {
+        out.X = Floor(v.X);
+        out.Y = Floor(v.Y);
+        out.Z = Floor(v.Z);
+    }
+
+    inline Vector3 Round(const Vector3 &v)
+    {
+        Vector3 out;
+        Round(v, out);
+        return out;
+    }
+
+    inline void Round(const Vector3 &v, Vector3 &out)
+    {
+        out.X = Round(v.X);
+        out.Y = Round(v.Y);
+        out.Z = Round(v.Z);
+    }
+
     inline float Vector3::Length() const
     {
         return Math::Length(*this);
@@ -616,6 +719,13 @@ namespace Math {
         out.X = SmoothStep(v1.X, v2.X, weight);
         out.Y = SmoothStep(v1.Y, v2.Y, weight);
         out.Z = SmoothStep(v1.Z, v2.Z, weight);
+    }
+
+    inline void Swap(Vector3 & v1, Vector3 & v2)
+    {
+        Swap(v1.X, v2.X);
+        Swap(v1.Y, v2.Y);
+        Swap(v1.Z, v2.Z);
     }
 
 } //namespace Math

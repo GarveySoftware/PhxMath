@@ -89,6 +89,7 @@ namespace Math {
         inline void Transform(const Quaternion &q);
 
         inline void Clamp(const Vector3 &min, const Vector3 &max);
+        inline void Clamp01();
 
         inline float Length() const;
         inline float LengthSquared() const;
@@ -168,6 +169,27 @@ namespace Math {
     inline Vector3 Clamp(const Vector3 &v, const Vector3 &min, const Vector3 &max);
     inline void Clamp(const Vector3 &v, const Vector3 &min, const Vector3 &max, Vector3 &out);
 
+    inline Vector3 Clamp01(const Vector3 &v);
+    inline void Clamp01(const Vector3 &v, Vector3 &out);
+
+    inline Vector3 Remap(const Vector3 &in, const Vector3 &inRangeMin, const Vector3 &inRangeMax, const Vector3 &outRangeMin, const Vector3 &outRangeMax);
+    inline void Remap(const Vector3 &in, const Vector3 &inRangeMin, const Vector3 &inRangeMax, const Vector3 &outRangeMin, const Vector3 &outRangeMax, Vector3 &out);
+
+    inline Vector3 Max(const Vector3 &v1, const Vector3 &v2);
+    inline void Max(const Vector3 &v1, const Vector3 &v2, Vector3 &out);
+
+    inline Vector3 Min(const Vector3 &v1, const Vector3 &v2);
+    inline void Min(const Vector3 &v1, const Vector3 &v2, Vector3 &out);
+
+    inline Vector3 Ceiling(const Vector3 &v);
+    inline void Ceiling(const Vector3 &v, Vector3 &out);
+
+    inline Vector3 Floor(const Vector3 &v);
+    inline void Floor(const Vector3 &v, Vector3 &out);
+
+    inline Vector3 Round(const Vector3 &v);
+    inline void Round(const Vector3 &v, Vector3 &out);
+
     inline float Length(const Vector3 &v);
     inline float LengthSquared(const Vector3 &v);
 
@@ -193,6 +215,8 @@ namespace Math {
 
     inline Vector3 SmoothStep(const Vector3 &v1, const Vector3 &v2, float weight);
     inline void SmoothStep(const Vector3 &v1, const Vector3 &v2, float weight, Vector3 &out);
+
+    inline void Swap(Vector3 & v1, Vector3 & v2);
 
 } //namespace Math
 } //namespace Phx
