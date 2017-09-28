@@ -27,13 +27,10 @@ THE SOFTWARE
 #ifndef _PHX_MATH_MATRIX4X4_INL_
 #define _PHX_MATH_MATRIX4X4_INL_
 
-// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-// - Some of the functions are based on the formulas and descriptions in "Essential Mathematics
-// = for Games and Interactive Applications, A Programmers Guide" by J. Verth and L. Bishop.
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // = Some matrix math is transposed vs the references, this is due to pre vs post multiplicaiton.
-// - Quaternions use post multiplication q1 * q2 = q2 rotated by q1.
-// = Matrices use pre multiplication m1 * m2 = m1 transformed by m2.
+// - Quaternions use post multiplication q1 * q2 is q2 rotated by q1.
+// = Matrices use pre multiplication m1 * m2 is m1 transformed by m2.
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 namespace Phx {
